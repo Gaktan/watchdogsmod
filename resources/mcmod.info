@@ -1,0 +1,16 @@
+[
+{
+  "modid": "Watchdogsmod",
+  "name": "Watch Dogs Mod",
+  "description": "Watch dogs in minecraft",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["Gak"],
+  "credits": "People who helped me",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
