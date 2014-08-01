@@ -1,4 +1,4 @@
-ï»¿10011011001010011011100110
+10011011001010011011100110
 A Rabbit!
 Afraid of the dark
 Asks for OP
@@ -12,23 +12,23 @@ Bends spoons with his mind
 Broke the Nether portal
 Brother of Notch
 Calls his nose Long Dong Johnson
-Canâ€™t afford Watch_Dogs
-Canâ€™t count past 4
-Canâ€™t craft
-Canâ€™t hack
-Canâ€™t Craft-bukkit
-Canâ€™t read the debug screen
-Canâ€™t spell own name
-Canâ€™t turn his head  left
-Canâ€™t turn his redstone computer on
+Can’t afford Watch_Dogs
+Can’t count past 4
+Can’t craft
+Can’t hack
+Can’t Craft-bukkit
+Can’t read the debug screen
+Can’t spell own name
+Can’t turn his head  left
+Can’t turn his redstone computer on
 Can only eat with a spork
-Can recite Ï€ backwards
-Can recite Ï€
+Can recite pi backwards
+Can recite pi
 Can shoot lasers from his eyes
 Can speak with rabbits
 Can spell his name backwards
-Caught â€˜em all
-Caught most of â€˜em all
+Caught ‘em all
+Caught most of ‘em all
 Chews on emeralds to sleep
 Choose Dianite instead of Mianite
 Collects flame-resistant wood planks
@@ -39,7 +39,7 @@ Cooks purest blue ice in ABQ
 Cosplayed as Tuxedo Mask
 Counted to infinity
 Covered in Bees
-Crashed his villageâ€™s only minecart
+Crashed his village’s only minecart
 Creeper hugger
 Cries in the corner
 DATA EXPUNGED
@@ -50,16 +50,16 @@ Digs straight up
 Does drag for a living
 Does not like pancakes
 Lives in the afterlife
-Doesnâ€™t believe in Notch
-Doesnâ€™t know their gender
-Doesnâ€™t know what a tree tastes like
-Doesnâ€™t know how to craft
-Doesnâ€™t have enough money to go on Roller Coaster 3
+Doesn’t believe in Notch
+Doesn’t know their gender
+Doesn’t know what a tree tastes like
+Doesn’t know how to craft
+Doesn’t have enough money to go on Roller Coaster 3
 Does not like the new EULA changes
 Dreams of becoming a world-renowned ballroom dancer
 Dressed up as a zombie for Halloween
 Dropped out of mineschool
-Eats children while theyâ€™re sleeping
+Eats children while they’re sleeping
 Eats dirt
 Eats endermen for breakfast
 Eats paste
@@ -83,8 +83,8 @@ Got banned from his favorite server
 Got all the achievments
 Habitually crafts diamond hoes
 Has a power level of over 9000
-Had a hamster named â€˜Dinnerboneâ€™
-Had a Dinnerbone named â€˜hamsterâ€™
+Had a hamster named ‘Dinnerbone’
+Had a Dinnerbone named ‘hamster’
 Hands are fused together
 Has 10,000 Yu-Gi-Oh cards
 Has a cockroach as a best friend
@@ -94,7 +94,7 @@ Has a grass allergy
 Has 47 dogs all known as John
 Has a Nether portal under his bed
 Has a secret affair with an enderman
-Has a signed copy of â€˜Ffifty Sshades of Cclayâ€™
+Has a signed copy of ‘Ffifty Sshades of Cclay’
 Has a stash of circles somewhere
 Has a top percentage Rattata
 Has a wheat allergy
@@ -103,7 +103,7 @@ Has done nothing but teleport bread for three days
 Has really been far even as decided to use even go want to do look more like
 Has chosen the dark side
 Has masses of traded paper
-Has caught more fish than thereâ€™s Netherrack in the nether
+Has caught more fish than there’s Netherrack in the nether
 Has played 7,000 hours of Minecraft
 Has taken our intelligence
 Has tried to infiltrate Mojang
@@ -135,9 +135,9 @@ KEEPS CAPS LOCK ON
 Kicked in the testificates
 Kills innocent rabbits
 Kills Rabbits for fun
-Knows Bill Nye, â€˜the nether guyâ€™ in person
+Knows Bill Nye, ‘the nether guy’ in person
 Knows no bounds
-Knows something you donâ€™t
+Knows something you don’t
 Knight of the Round Table
 Khaaaaaaaaaaaaaaaan
 Lies about having stacks of Diamond blocks
@@ -155,7 +155,7 @@ Likes to make his own cats eat children by teabagging dead doritos
 Likes to read mystery books
 Likes wood ands potatoes
 Listens to Nickelback
-Literally canâ€™t even
+Literally can’t even
 Lives with 9 cats
 Lost their emeralds
 Loves falcons
@@ -164,13 +164,13 @@ Is scared of avocados
 Made a diamond hoe
 Made a door open with redstone
 Majored in Underwater Basket weaving
-Makes fun of Witchesâ€™ long noses
+Makes fun of Witches’ long noses
 Makes Loom Bands with a fork
 Unable to type a complete sen
 Middle child
 Missing from the village for a month
 Never changes his clothes
-Never learned how to pronounce the word â€œnuclearâ€
+Never learned how to pronounce the word “nuclear”
 No scopes
 Not a creeper
 Only builds with dirt
@@ -179,10 +179,10 @@ Only plays Peaceful mode
 Owns a Faction server
 Owns a Hacking Device Himself
 Owns a stack of 65 cobblestone
-Owns an original copy of the book â€˜64 shades of hayâ€™
+Owns an original copy of the book ‘64 shades of hay’
 Owns world record for most Monopoly boards broken
 Owns the Flying Dutchman
-Parle franÃ§ais
+Parle français
 Plays too much
 Plants carrots upside down
 Plays Call of Duty at 5fps
@@ -198,7 +198,7 @@ Reached level 60 in World of Warcraft
 Read the complete terms and services
 Recently griefed
 Rents a summer house in the Nether
-Runs â€˜Secret Skeleton Fight Club
+Runs ‘Secret Skeleton Fight Club
 Saw Herobrine
 Says they were the first person to kill the Enderdragon
 sdrawkcabB sgniht syaS
@@ -218,13 +218,13 @@ Snorts glowstone
 Still trying to find out what BAE means
 Sold his AppleSoft stocks 20 years ago
 Sold his minecart for rails
-Spells Moon â€˜MÃ¼nâ€™
+Spells Moon ‘Mün’
 Still controls boats with the keyboard
 Still uses IE6 and Windows Vista
 Still uses Windows 95
 Stole all the glowstone
-Stole his friendâ€™s wood
-Stole his parentsâ€™ emeralds
+Stole his friend’s wood
+Stole his parents’ emeralds
 Suffers from nomatophobia
 Suffers from ambulophobia
 Suffers from bibliophobia
@@ -239,8 +239,8 @@ The Best Pony
 Thinks you hack
 Thinks circles might exist
 Thinks the world is round
-Thinks theyâ€™re psychic
-Thinks he invented â€˜lolâ€™
+Thinks they’re psychic
+Thinks he invented ‘lol’
 Thinks he invented Redstone
 Throws weekly house parties
 Toastmaster
@@ -264,13 +264,13 @@ Was a testificate before it was cool
 Watched the entire end game credits
 Watches dogs
 Watches wheat grow
-Watches you while youâ€™re sleeping
+Watches you while you’re sleeping
 Watches YouTube all day
 Wishes they could change profession
 Worships Herobrine
 Worships EthosLab
-Wrote â€˜Shrek is love Shrek is lifeâ€™
-Wrote his Christmas cards to â€˜Testificateâ€™
-Wrote â€˜firstâ€™ on 1000 videos
+Wrote ‘Shrek is love Shrek is life’
+Wrote his Christmas cards to ‘Testificate’
+Wrote ‘first’ on 1000 videos
 Was genuinely the 1 millionth visitor
 Yells often in chat
