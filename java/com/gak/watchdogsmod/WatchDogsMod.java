@@ -2,9 +2,12 @@ package com.gak.watchdogsmod;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
@@ -36,6 +39,9 @@ public class WatchDogsMod
     public static CreativeTabs gakTab = new CreativeTabsMyMod("Gak");
     
 	public static Item hackingDevice;
+	public static Item hat;
+	
+	public static ModelBiped hatModel;
 	
     @EventHandler
     public void init(FMLInitializationEvent event){
@@ -50,13 +56,17 @@ public class WatchDogsMod
         network.registerMessage(WatchPackets.ServerHandler.class, WatchPackets.class, 0, Side.SERVER);
         network.registerMessage(WatchPackets.ClientHandler.class, WatchPackets.class, 0, Side.CLIENT);
     	
-    	hackingDevice = new ItemHackingDevice(1, gakTab, 1, "HackingDevice");
+    	hackingDevice = new ItemHackingDevice(1, gakTab, "HackingDevice");
+    	hat = new ItemHat(ItemHat.material, 4, 0);
+    	
+    	hatModel = new ModelHat(1);
+    	
     	RandomAdvancedVillager rav = new RandomAdvancedVillager();
     	rav.loadStrings(rav.names, "names.txt");
     	rav.loadStrings(rav.surnames, "surnames.txt");
     	rav.loadStrings(rav.infos, "infos.txt");
         
         GameRegistry.registerItem(hackingDevice, hackingDevice.getUnlocalizedName());
-        
+        GameRegistry.registerItem(hat, hat.getUnlocalizedName());
     }
 }

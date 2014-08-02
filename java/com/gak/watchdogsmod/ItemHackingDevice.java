@@ -26,7 +26,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class ItemHackingDevice extends Item{
 
-	public ItemHackingDevice(int maxStackSize, CreativeTabs tab, int texture, String name){
+	public ItemHackingDevice(int maxStackSize, CreativeTabs tab, String name){
 		setMaxStackSize(maxStackSize);
 		setCreativeTab(tab);
 		setNoRepair();
