@@ -4,17 +4,15 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelHat extends ModelBiped
-{
-	//fields
+public class ModelHat extends ModelBiped{
+	
 	ModelRenderer Shape1;
 	ModelRenderer Shape5;
 	ModelRenderer Shape3;
 	ModelRenderer Shape2;
 	ModelRenderer Shape4;
 
-	public ModelHat(float f)
-	{
+	public ModelHat(float f){
 		super(f, 0, 64, 64);
 		textureWidth = 64;
 		textureHeight = 64;
@@ -61,14 +59,12 @@ public class ModelHat extends ModelBiped
 		bipedHead.addChild(Shape5);
 	}
 
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-	{
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5){
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 	}
 	
-	private void setRotation(ModelRenderer model, float x, float y, float z)
-	{
+	private void setRotation(ModelRenderer model, float x, float y, float z){
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;

@@ -1,4 +1,7 @@
 itemGroup.Gak=Gak
 
 item.HackingDevice.name=Hacking Device
-item.hat.name= Hat
+item.hat.name=Hat
+item.coat.name=Coat
+tile.monitoringDevice.name=Monitoring Device
+tile.hackedRedstone.name=Hacked Redstone

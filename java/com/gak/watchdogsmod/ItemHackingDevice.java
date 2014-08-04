@@ -1,28 +1,14 @@
 package com.gak.watchdogsmod;
 
-import java.util.Iterator;
-import java.util.List;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRedstoneWire;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 
 public class ItemHackingDevice extends Item{
 
@@ -66,21 +52,44 @@ public class ItemHackingDevice extends Item{
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
 	public boolean onItemUse(ItemStack tool,
 			EntityPlayer player, World world, int x, int y,
 			int z, int par7, float xFloat, float yFloat, float zFloat)
 	{
-		if(player.worldObj.isRemote){
+		if(!player.worldObj.isRemote){
 			if (!player.canPlayerEdit(x, y, z, par7, tool))//can the player edit this block? if he cant then dont do anything
 			{
 				return false;
 			}
 			Block target = world.getBlock(x, y, z);
 			if (target == Blocks.redstone_wire){
-				int meta = world.getBlockMetadata(x, y, z);
-
-				world.setBlock(x, y, z, Blocks.redstone_wire, 15, 15);
+				world.setBlock(x, y, z, WatchDogsMod.hackedRedstone);
+			}
+			else if(target == WatchDogsMod.hackedRedstone){
+				world.setBlock(x, y, z, Blocks.redstone_wire);
+			}
+			else if(target == Blocks.iron_door){
+				int pos = world.getBlockMetadata(x, y, z);
+				
+				if(pos == 8){//Top door
+					return false;
+				}
+				int next = 0;
+				String sound;
+				if(pos < 4){//if closed
+					next = pos + 4;
+					sound = "door_open";
+				}
+					
+					
+				else{//if open
+					next = pos - 4;
+					sound = "door_close";
+				}
+					
+				
+				world.setBlockMetadataWithNotify(x, y, z, next, Block.getIdFromBlock(Blocks.iron_door));
+				player.playSound(sound, 1, 1);
 			}
 
 			return true;

@@ -1,20 +1,9 @@
 package com.gak.watchdogsmod;
 
-import io.netty.handler.codec.http.HttpHeaders.Names;
-
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLDecoder;
 import java.util.ArrayList;
-import java.util.Random;
-
-import net.minecraft.util.ResourceLocation;
 
 public class RandomAdvancedVillager {
 

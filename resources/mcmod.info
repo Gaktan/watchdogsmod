@@ -3,14 +3,14 @@
   "modid": "Watchdogsmod",
   "name": "Watch Dogs Mod",
   "description": "Watch dogs in minecraft",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "version": "",
+  "mcversion": "",
   "url": "",
   "updateUrl": "",
-  "authors": ["Gak"],
+  "authorList": [ "Gaktan" ],
   "credits": "People who helped me",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [ "mod_MinecraftForge" ]
 }
 ]

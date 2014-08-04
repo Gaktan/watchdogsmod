@@ -1,47 +1,31 @@
 package com.gak.watchdogsmod;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
-
-import org.lwjgl.opengl.GL11;
-
-import com.ibm.icu.util.StringTokenizer;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.logging.Logger;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.RendererLivingEntity;
-import net.minecraft.client.resources.data.PackMetadataSection;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.Packet;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
-import net.minecraftforge.event.entity.living.LivingEvent;
+
+import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityAdvancedVillager implements IExtendedEntityProperties{
 
@@ -53,6 +37,7 @@ public class EntityAdvancedVillager implements IExtendedEntityProperties{
 	public int threatLevel;
 	public int age;
 	private static final ResourceLocation target = new ResourceLocation(WatchDogsMod.MODID+ ":textures/gui/target.png");
+	public static ArrayList<Integer> villagerList = new ArrayList<Integer>();
 
 	public EntityAdvancedVillager(EntityVillager villager) {
 		this.villager = villager;
@@ -63,66 +48,68 @@ public class EntityAdvancedVillager implements IExtendedEntityProperties{
 		surname = rdv.getRandom(rdv.surnames);
 		occupation = professionToString(villager.getEntityData().getInteger("Profession"));
 		info = rdv.getRandom(rdv.infos);
-		
+
 		age = new Random().nextInt(30-11) + 11;
-		
+
 		threatLevel = new Random().nextInt(100);
 
 		occupation = professionToString(0);
 		renderInfos = false;
 	}
-	
+
 	public static void setNewTarget(EntityVillager villager){
-		
+
 		double x = villager.posX;
 		double y = villager.posY;
 		double z = villager.posZ;
 		double radius = 10;
-		
+
 		double x1 = new Random().nextInt((int) ((x+radius)-(x-radius)+1)) + (x-radius);
 		double y1 = new Random().nextInt((int) ((y+2)-(y)+1)) + y;
 		double z1 = new Random().nextInt((int) ((z+radius)-(z-radius)+1)) + (z-radius);
-		
+
 		EntityZombie zombie = new EntityZombie(villager.worldObj);
 		zombie.setLocationAndAngles(x1, y1, z1, MathHelper.wrapAngleTo180_float(new Random().nextFloat() * 360.0F), 0.0F);
 		zombie.rotationYawHead = zombie.rotationYaw;
 		zombie.renderYawOffset = zombie.rotationYaw;
-		
+
 		villager.worldObj.spawnEntityInWorld(zombie);
 		zombie.playLivingSound();
-		
+
 		zombie.tasks.addTask(1, new EntityAIAttackOnCollide(villager, EntityVillager.class, 0, false));
 		zombie.targetTasks.addTask(1, new EntityAINearestAttackableTarget(villager, EntityVillager.class, 0, false));
 	}
 
 	public static final void register(EntityVillager villager){
 		villager.registerExtendedProperties(EntityAdvancedVillager.EXT_PROP_NAME, new EntityAdvancedVillager(villager));
+		villagerList.add(villager.getEntityId());
 	}
 
 	public static final EntityAdvancedVillager get(EntityVillager villager){
 		return (EntityAdvancedVillager) villager.getExtendedProperties(EXT_PROP_NAME);
 	}
 
-	@Override
-	public void init(Entity entity, World world) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void loadNBTData(NBTTagCompound compound) {
 
-		NBTTagCompound properties = (NBTTagCompound) compound.getTag(EXT_PROP_NAME);
+		try{
+			NBTTagCompound properties = (NBTTagCompound) compound.getTag(EXT_PROP_NAME);
+			
+			name = properties.getString("Name");
+			surname = properties.getString("Surname");
+			occupation = professionToString(compound.getInteger("Profession"));
+			info = properties.getString("Info");
 
-		name = properties.getString("Name");
-		surname = properties.getString("Surname");
-		occupation = professionToString(compound.getInteger("Profession"));
-		info = properties.getString("Info");
-		
-		if(compound.getInteger("Age") < 0)
-			age = new Random().nextInt(10);
-		else
-			age = new Random().nextInt(30-11) + 11;
+			if(compound.getInteger("Age") < 0)
+				age = new Random().nextInt(10);
+			else
+				age = new Random().nextInt(30-11) + 11;
+			
+		}catch(NullPointerException e){
+			Logger log = Logger.getLogger(WatchDogsMod.MODID);
+	    	log.log(java.util.logging.Level.INFO, "Old villager spotted. I gave them a name for you.");
+		}
 	}
 
 	@Override
@@ -166,7 +153,7 @@ public class EntityAdvancedVillager implements IExtendedEntityProperties{
 
 			diffX += x;
 			diffZ += z;
-			
+
 			if(par1EntityLiving.isChild()){
 				diffY -= 1;
 				GL11.glScaled(0.5, 0.5, 0.5);
@@ -242,15 +229,15 @@ public class EntityAdvancedVillager implements IExtendedEntityProperties{
 				fontrenderer.drawString(par2Str[i], -fontrenderer.getStringWidth(par2Str[i]) / 2, 0, 553648127);
 				GL11.glTranslated(0, 9, 0);
 			}
-			
+
 			if(Integer.parseInt(par2Str[par2Str.length-1]) > 85){
 				GL11.glDisable(GL11.GL_TEXTURE_2D);
-				
+
 				GL11.glTranslated(0, -9*9, 0);
-				
+
 				String str = "Threat level : " + par2Str[par2Str.length-1] + "%";
 				int j = fontrenderer.getStringWidth(str) / 2;
-				
+
 				tessellator.startDrawingQuads();
 
 				tessellator.setColorRGBA(246, 255, 22, 255);
@@ -260,12 +247,12 @@ public class EntityAdvancedVillager implements IExtendedEntityProperties{
 				tessellator.addVertex((double)(j + 1), (double)(value), 0.0D);
 				tessellator.draw();
 				GL11.glEnable(GL11.GL_TEXTURE_2D);
-				
+
 				GL11.glTranslated(0, 9*4, 0);
-				
+
 				fontrenderer.drawString(str, -fontrenderer.getStringWidth(str) / 2, 0, 0);		
 			}
-			
+
 			GL11.glEnable(GL11.GL_DEPTH_TEST);
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glEnable(GL11.GL_BLEND);
@@ -303,7 +290,7 @@ public class EntityAdvancedVillager implements IExtendedEntityProperties{
 	public void setRenderInfos(boolean renderInfos) {
 		this.renderInfos = renderInfos;
 	}
-	
+
 
 	@Override
 	public String toString() {		
@@ -316,5 +303,28 @@ public class EntityAdvancedVillager implements IExtendedEntityProperties{
 		return str;
 	}
 
+	public String[] toStringList(EntityVillager v) {
+		String[] str = {name.toUpperCase() + " " + surname.toUpperCase(), info.toUpperCase(), 
+				"Age / " + age, "Occupation / " + occupation, "Last known pos / " + (int)v.posX + ", " + (int)v.posZ,
+				"Threat / "+threatLevel};
+		return str;
+	}
 
+	public static String[] getAllVillagersNames(World world){
+		String []str = new String[villagerList.size()];
+		int j = 0;
+		for(Integer i : villagerList){
+			EntityVillager villager = (EntityVillager) world.getEntityByID(i);
+			if(villager != null){
+				EntityAdvancedVillager eav = get(villager);
+				str[j] = i + ", " + eav.name.toUpperCase() + ", " + eav.surname.toUpperCase();
+				j++;
+			}
+		}
+		return str;
+	}
+
+	@Override
+	public void init(Entity entity, World world) {
+	}
 }

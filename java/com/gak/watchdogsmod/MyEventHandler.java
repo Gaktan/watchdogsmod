@@ -4,14 +4,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import static cpw.mods.fml.common.eventhandler.EventPriority.*;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class MyEventHandler{
 
@@ -24,11 +19,8 @@ public class MyEventHandler{
 
 		Entity e = event.entity;
 		if(e != null){
-
 			if (e instanceof EntityVillager){
-
 				EntityVillager villager = (EntityVillager) e;
-
 				EntityAdvancedVillager.register(villager);
 			}
 		}
@@ -39,11 +31,11 @@ public class MyEventHandler{
 		Entity e = event.target;
 		EntityPlayerMP player = (EntityPlayerMP) event.entityPlayer;
 
-
 		if (e instanceof EntityVillager){
 			EntityVillager villager = (EntityVillager) e;
 			if(!player.worldObj.isRemote){
-				WatchDogsMod.network.sendTo(new WatchPackets(EntityAdvancedVillager.get(villager).toString()), player);
+				EntityAdvancedVillager eav = EntityAdvancedVillager.get(villager);
+				WatchDogsMod.network.sendTo(new WatchPackets(eav.toString()), player);
 			}
 		}
 	}
